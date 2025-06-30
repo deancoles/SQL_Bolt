@@ -1,11 +1,11 @@
 -- Find the list of all buildings that have employees
-SELECT DISTINCT building FROM employees;
+SELECT DISTINCT employee_building_name FROM employee WHERE employee_building_name NOT NULL;
 
 -- Find the list of all buildings and their capacity
-SELECT name, capacity FROM buildings;
+SELECT building_name, building_capacity FROM building;
 
 -- List all buildings and the distinct employee roles in each building (including empty buildings)
-SELECT DISTINCT buildings.name, role
-FROM buildings
-LEFT JOIN employees
-ON buildings.name = employees.building;
+SELECT DISTINCT building_name, employee_role
+FROM building
+LEFT JOIN employee
+ON building.building_name = employee.employee_building_name;
